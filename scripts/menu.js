@@ -222,8 +222,16 @@ Hooks.once("ready", () => {
     // Дождаться остальных обработчиков от систем и модулей.
     setTimeout(() => organize(app, html), 0);
   };
-  for (const name of ["renderApplication", "renderApplicationV1", "renderApplicationV2"]) Hooks.on(name, render);
-  for (const name of ["closeApplication", "closeApplicationV1", "closeApplicationV2"]) {
+  // У старых листов цепочка событий заканчивается на ActorSheet/ItemSheet:
+  // события Application для них не отправляются.
+  for (const name of [
+    "renderActorSheet", "renderItemSheet", "renderActorSheetV2", "renderItemSheetV2",
+    "renderApplication", "renderApplicationV1", "renderApplicationV2"
+  ]) Hooks.on(name, render);
+  for (const name of [
+    "closeActorSheet", "closeItemSheet", "closeActorSheetV2", "closeItemSheetV2",
+    "closeApplication", "closeApplicationV1", "closeApplicationV2"
+  ]) {
     Hooks.on(name, app => { const state = states.get(app); if (state) destroy(state); });
   }
   for (const app of Object.values(ui.windows ?? {})) organize(app, app.element);

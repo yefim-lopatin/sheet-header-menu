@@ -2,12 +2,12 @@
   "id": "sheet-header-menu",
   "title": "Кнопки модулей в меню",
   "description": "Убирает дополнительные кнопки из заголовков листов персонажей, существ и предметов в выпадающее меню «Модули».",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": { "minimum": "13", "verified": "14.368", "maximum": "14" },
   "authors": [{ "name": "Yefim Lopatin" }],
   "url": "https://github.com/yefim-lopatin/sheet-header-menu",
   "manifest": "https://github.com/yefim-lopatin/sheet-header-menu/releases/latest/download/module.json",
-  "download": "https://github.com/yefim-lopatin/sheet-header-menu/releases/download/v1.0.1/sheet-header-menu.zip",
+  "download": "https://github.com/yefim-lopatin/sheet-header-menu/releases/download/v1.0.2/sheet-header-menu.zip",
   "esmodules": ["scripts/menu.js"],
   "styles": ["styles/menu.css"]
 }
